@@ -1,0 +1,38 @@
+<div class="profile-editor">
+  <form (ngSubmit)="saveData(form)" #form="ngForm">
+    <div class="form-group">
+      <label for="firstName">Имя</label>
+      <input id="firstName" name="firstName" type="text" placeholder="Введите данные" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Фамилия</label>
+      <input id="lastName" name="lastName" type="text" placeholder="Введите данные" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="telegram">Telegram username</label>
+      <input id="telegram" name="telegram" type="text" ngModel required>
+    </div>
+    <div class="form-group">
+      <label for="about">О себе</label>
+      <textarea id="about" name="about" placeholder="Введите данные" ngModel required></textarea>
+    </div>
+    <div class="form-group avatar-upload">
+      <label for="avatar">Аватарка</label>
+      <div class="avatar-placeholder">
+        <img src="avatarPreview || 'path/to/default-avatar.png'" alt="Avatar">
+      </div>
+      <div class="upload-instructions">
+        <input type="file" id="avatar" (change)="onFileSelected($event)">
+        <small>разрешение до 5,000 x 5,000 px</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="skills">Навыки</label>
+      <input id="skills" name="skills" type="text" placeholder="Введите данные" ngModel required>
+    </div>
+    <div class="form-actions">
+      <button type="button">Отмена</button>
+      <button type="submit">Сохранить</button>
+    </div>
+  </form>
+</div>

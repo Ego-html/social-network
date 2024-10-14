@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="left-column">
+    <div class="logo-section">
+      <img ngSrc="assets/images/лого3.png" width="150" height="150">
+      <p class="logo-text">Тик-talk</p>
+    </div>
+    <div class="my-page">
+      <div>
+        <img ngSrc="assets/images/дом2.jpg" width="50" height="50">
+      </div>
+      <p>Моя страница</p>
+    </div>
+
+    <div class="chats">
+      <div>
+        <img ngSrc="assets/images/чаты3.png" width="50" height="50">
+      </div>
+      <p>Чаты</p>
+      <span class="chat-count">28</span>
+    </div>
+
+    <div class="search">
+      <div>
+        <img src="assets/images/поиск2.png" width="50" height="50">
+      </div>
+      <p>Поиск</p>
+    </div>
+
+    <div class="subscribers">
+      <h3>Подписчики</h3>
+    </div>
+  </div>
+  <div class="avatar" (click)="navigatorToProfile()">
+    <img [src]="userData.avatar || 'assets/images/7153150.png'" alt="Avatar" width="150" height="150" class="avatar-img"/>
+    <div>
+      <h2 *ngIf="userData.firstName || userData.lastName">
+        <strong>Имя: </strong> <span>{{ userData.firstName || 'Не указано' }}</span><br>
+        <strong>Фамилия: </strong><span>{{ userData.lastName || 'Не указано' }}</span><br>
+        <strong class="label">Телеграм: </strong><span>
+        <a [href]="'https://t.me/' + userData.telegram"
+          *ngIf="userData.telegram"
+          target="_blank"
+          class="telegram-link"
+        >
+   {{ userData.telegram }}
+          <span *ngIf="!userData.telegram">Не указано</span>
+</a></span>
+      </h2>
+      <div *ngIf="userData.about">
+        <p class="user-about"><strong>О себе:</strong> {{ userData.about }}</p>
+      </div>
+      <div class="user-skills" *ngIf="userData.skills">
+        <p><strong>Навыки:</strong> {{ userData.skills }}</p>
+      </div>
+    </div>
+  </div>
+</div>
